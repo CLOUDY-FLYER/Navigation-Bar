@@ -1,0 +1,135 @@
+/** Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(to right, #1d2671, #c33764);
+    color: white;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(10px);
+    z-index: 1000;
+    transition: all 0.5s ease;
+}
+
+.logo a {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #ffcc70;
+    text-decoration: none;
+    letter-spacing: 2px;
+    transition: color 0.3s ease;
+}
+
+.logo a:hover {
+    color: #fff;
+}
+
+.nav-links{
+    display: flex;
+    list-style: none;
+}
+
+.nav-links li {
+    margin: 0 1.2rem;
+}
+
+.nav-links a:hover {
+    color: #ffcc70;
+}
+
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0%;
+    height: 3px;
+    background: #ffcc70;
+    transition: width 0.4s ease;
+}
+
+.nav-links a:hover::after {
+    width: 100%;
+}
+
+.btn a {
+    background: linear-gradient(45deg, #ff8a00, #e52e71);
+    padding: 0.7rem 1.5rem;
+    border-radius: 25px;
+    font-weight: bold;
+    box-shadow: 0 4px 15px rgba(229, 46, 113, 0.6);
+    transition: all 0.3s ease;
+}
+
+.btn a:hover {
+    background: linear-gradient(45deg, #e52e71, #ff8a00);
+    transition: scale(1.1);
+}
+
+/** Burger Menu */
+.burger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+}
+
+.burger span {
+    background: white;
+    height: 3px;
+    width: 25px;
+    margin: 4px 0;
+    transition: all 0.3s ease;
+}
+
+/** RWD */
+@media (max-width: 768px) {
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        background: rgba(0, 0, 0, 0.9);
+        position: absolute;
+        top: 100%;
+        right: 0;
+        width: 100%;
+        text-align: center;
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    .burger {
+        display: flex;
+    }
+
+    .burger span:nth-child(1).active {
+        transform: rotate(45deg) translate(5px, 5px);
+    }
+
+    .burger span:nth-child(2).active {
+        opacity: 0;
+    }
+
+    .burger span:nth-child(3).active {
+        transform: rotate(-45deg) translate(5px, -5px);
+    }
+}
